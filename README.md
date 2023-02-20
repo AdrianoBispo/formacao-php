@@ -1,11 +1,15 @@
 # PHP: Primeiro Passos
 
+Este projeto está sendo desenvolvido através da formação PHP da Alura, 
+onde estou estudando os fundamentos do PHP que é uma linguagem bastante poderosa e bastante utilizada na Web.
+
 <details>
   <summary>
     <h2> Instalando o PHP </h2>
   </summary>
   
-  - Site do download PHP é: https://www.php.net/downloads.php
+  - Para executar um código em PHP o seu interpretador precisa ser instalado antes
+  - Site para download do PHP é: https://www.php.net/downloads.php
   - Adicione a pasta PHP na variável de ambiente PATH
   - Renomeie o arquivo php.ini-development para php.ini
   - Após instalação abre um terminal e digite o comando: php -v(Se exibir a versão do PHP é porque a instalação foi realizada com sucesso)
