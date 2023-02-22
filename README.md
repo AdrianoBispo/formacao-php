@@ -1,7 +1,7 @@
-# PHP: Primeiro Passos
+# Formação PHP
 
-Este projeto está sendo desenvolvido através da formação PHP da Alura, 
-onde estou estudando os fundamentos do PHP que é uma linguagem bastante poderosa e bastante utilizada na Web.
+Este projeto está sendo desenvolvido através da "Formação PHP" da Alura, 
+onde estou estudando desde dos fundamentos da linguagem até conceitos mais avançados.
 
 <details>
   <summary>
