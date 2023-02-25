@@ -4,6 +4,32 @@ Este diretório foi criado para armazenar as anotações e os exercícios realiz
 
 <details>
   <summary>
+    <h2> Sobre o PHP </h2>
+  </summary>
+
+  <h3> O que é o PHP? </h3>
+  <p>
+    O PHP é uma das linguagens de programação mais utilizadas no desenvolvimento web. Por ser multi plataforma, open source, gratuita e bastante completa, a linguagem
+    PHP conquistou o mercado e desenvolvedoras/es, tendo uma comunidade vibrante e uma evolução rápida nos últimos anos.
+  </p>
+  
+  <h3> O que faz um(a) dev PHP? </h3>
+  <p>
+    O PHP é uma das linguagens de programação mais utilizadas no desenvolvimento web. Por ser multi plataforma, open source, gratuita e bastante completa, a linguagem
+    PHP conquistou o mercado e desenvolvedoras/es, tendo uma comunidade vibrante e uma evolução rápida nos últimos anos.
+  </p>
+  
+  <h3> Como está o Mercado de Trabalho para Devs PHP? </h3>
+  <p>
+    O PHP é uma das linguagens de programação mais utilizadas no desenvolvimento web, cerca de 81% dos sites da web utilizam PHP. Por ser multi plataforma, open
+    source, gratuita e bastante completa, a linguagem PHP conquistou o mercado e desenvolvedoras/es, tendo uma comunidade vibrante e uma evolução rápida nos últimos
+    anos.
+  </p>
+
+</details>
+
+<details>
+  <summary>
     <h2> Instalando o PHP </h2>
   </summary>
   <img src="https://github.com/AdrianoBispo/formacao-php/blob/master/img/instalando-php.png?raw=true" /> 
@@ -13,12 +39,13 @@ Este diretório foi criado para armazenar as anotações e os exercícios realiz
   </p>
   
   <p>
-    <b>OBS: Em todas as plataformas ainda existe a possibilidade de você baixar o código fonte do PHP e compilá-lo em sua máquina.
-    Isso te dá um controle maior sobre quais extensões do PHP estarão habilitadas, em qual diretório os arquivos ficarão, dentre outras vantagens.
-    Por ser um processo relativamente complicado e propenso a erros, recomendo que você conheça essa abordagem quando já estiver mais confiante com a linguagem para
-    não perder o foco agora no início.</b>
+    <b>
+      OBS: Em todas as plataformas ainda existe a possibilidade de você baixar o código fonte do PHP e compilá-lo em sua máquina.
+      Isso te dá um controle maior sobre quais extensões do PHP estarão habilitadas, em qual diretório os arquivos ficarão, dentre outras vantagens.
+      Por ser um processo relativamente complicado e propenso a erros, recomendo que você conheça essa abordagem quando já estiver mais confiante com a linguagem para
+      não perder o foco agora no início.
+    </b>
   </p>
-  
 
 </details>
 
