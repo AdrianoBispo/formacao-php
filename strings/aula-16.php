@@ -25,5 +25,15 @@ foreach ($telefone as $telefone) {
         $regex,
         '(XX) \2',
         $telefone
-    );
+    ) . PHP_EOL;
 }
+
+// Atividade - Trocando a Ordem de uma Data
+
+$data = '2022-06-08';
+$regex = '/^([0-9]{4})-([0-9]{2})-([0-9]{2})/';
+echo preg_replace(
+    $regex,
+    '\3/\2/\1',
+    $data
+);
