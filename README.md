@@ -1,6 +1,6 @@
 # Formação PHP
 
-Este diretório foi criado para armazenar todos os exercício e mini-projetos dos cursos de PHP da <a href="https://cursos.alura.com.br/formacao-linguagem-php">"Formação PHP"</a> instruído pelo <a href="https://cursos.alura.com.br/user/cviniciussdias">Vinicius Dias</a> na <a href="https://www.alura.com.br">Alura</a>, onde estou estudando desde os fundamentos da linguagem até conceitos mais avançados.
+Este diretório foi criado para armazenar as anotações e os exercícios realizados dos cursos da <a href="https://cursos.alura.com.br/formacao-linguagem-php">"Formação PHP"</a> instruído pelo <a href="https://cursos.alura.com.br/user/cviniciussdias">Vinicius Dias</a> na <a href="https://www.alura.com.br">Alura</a>, onde estou estudando desde os fundamentos da linguagem até conceitos mais avançados.
 
 <details>
   <summary>
