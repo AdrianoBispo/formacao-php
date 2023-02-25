@@ -30,7 +30,7 @@ foreach ($cpf as $cpf) {
         '/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/',
         $cpf,
         $cpfCapturados
-    )
+    );
 }
 
 if ($validandoCPF) {
