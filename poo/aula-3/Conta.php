@@ -25,7 +25,7 @@ class Conta
     public $saldo;
 }
 
-// OBS: A partir da versão 7.4 do PHP, podemos definir essa "class" assim:
+// A partir da versão 7.4 do PHP, podemos definir essa "class" assim:
 /*
     class ContaExemplo
     {
@@ -33,7 +33,12 @@ class Conta
         public string $nomeTitular;
         public float $saldo;
     }
+
+    Desse modo, é possível garantir que o $cpfTitular e o $nomeTitular gravado sempre terá o valor "string", e que o $saldo sempre terá o valor de número.
 */
+
+// OBS: No momento em que foi gravado o curso, essa funcionalidade ainda não estava disponível para Windows.
+
 
 /*
     Por que usar a palavra-chave "public"?
