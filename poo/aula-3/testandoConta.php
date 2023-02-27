@@ -20,3 +20,15 @@ $primeiraConta->nomeTitular = 'Vinicius Dias';
 var_dump($primeiraConta);
 
 // Ao definirmos os atributos da nossa classe, estamos garantindo que toda conta terá um $cpfTitular, um $nomeTitular e um saldo, mesmo que seus valores sejam nulos.
+
+
+// Nossa classe nos permite a criação de vários objetos, por exemplo uma $segundaConta, recebendo também uma nova instância de "Conta", agora vazia.
+$segundaConta = new Conta();
+$segundaConta->cpfTitular = '987.654.321-10';
+$segundaConta->nomeTitular = 'Patricia';
+$segundaConta->saldo = 1500;
+
+var_dump($segundaConta); // Retorna os valores que acabamos de definir
+
+//Se fizermos um var_dump() de $primeiraConta, ela continuará com os valores originais.
+var_dump($primeiraConta); // Retorna os valores definidos da $primeiraConta.
