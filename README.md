@@ -30,6 +30,13 @@ Este diretório foi criado para armazenar as anotações e os exercícios realiz
 
 <details>
   <summary>
+    <h2> RoadMap PHP </h2>
+  </summary>
+  <a href="https://techguide.sh/pt-BR/path/php/">Guia Completo</a> para estudar PHP do Básico ao Avançado.
+</details>
+
+<details>
+  <summary>
     <h2> Instalando o PHP </h2>
   </summary>
   <img src="https://github.com/AdrianoBispo/formacao-php/blob/master/img/instalando-php.png?raw=true" /> 
