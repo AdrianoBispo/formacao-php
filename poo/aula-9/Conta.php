@@ -1,5 +1,7 @@
 <?php
 
+// Método Construtor
+
 class Conta
 {
     private $cpfTitular;
@@ -8,8 +10,8 @@ class Conta
 
     public function __construct(string $cpfTitular, string $nomeTitular)
     {
-        $this->$cpfTitular = $cpfTitular;
-        $this->$nomeTitular = $nomeTitular;
+        $this->cpfTitular = $cpfTitular;
+        $this->nomeTitular = $nomeTitular;
         $this->saldo = 0;
     }
 
@@ -54,7 +56,7 @@ class Conta
         return $this->cpfTitular;
     }
 
-    public function recuperarNomeTitular(): string
+    public function recuperaNomeTitular(): string
     {
         return $this->nomeTitular;
     }
