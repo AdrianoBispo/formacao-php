@@ -4,7 +4,7 @@ class Conta
 {
     public $cpfTitular;
     public $nomeTitular;
-    public $saldo = 100;
+    public $saldo = 0;
 
     public function sacar(float $valorASacar)
     {
@@ -14,7 +14,7 @@ class Conta
             $this->saldo -= $valorASacar;
         }
     }
-    
+
     public function depositar(float $valorADepositar): void
     {
         if ($valorADepositar < 0) {
