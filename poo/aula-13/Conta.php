@@ -2,7 +2,7 @@
 
 class Conta
 {
-    private $titular;
+    private Titular $titular;
     private $saldo;
     private static $numeroDeContas = 0;
 
