@@ -2,13 +2,13 @@
 
 class Conta
 {
-    private $titular;
+    private Titular $titular;
     private $saldo;
     private static $numeroDeContas = 0;
 
     public function __construct(Titular $titular)
     {
-        $this->titular = $titular. 
+        $this->titular = $titular;
         $this->saldo = 0;
         self::$numeroDeContas++;
     }
