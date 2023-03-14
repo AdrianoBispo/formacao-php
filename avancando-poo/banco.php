@@ -1,12 +1,25 @@
 <?php
 
 require_once 'Conta.php';
+require_once 'Endereco.php';
 require_once 'Titular.php';
-require_once 'Cpf.php';
+require_once 'CPF.php';
 
-$umaConta = new Conta(new Titular(new Cpf('123.456.789-10'), 'Patricia'));
+$endereco = new Endereco('Petrópolis', 'um bairro', 'minha rua', '71B');
+$vinicius = new Titular(new CPF('123.456.789-10'), 'Vinicius Dias', $endereco);
+$primeiraConta = new Conta($vinicius);
+$primeiraConta->deposita(500);
+$primeiraConta->saca(300);
+
+echo $primeiraConta->recuperaNomeTitular() . PHP_EOL;
+echo $primeiraConta->recuperaCpfTitular() . PHP_EOL;
+echo $primeiraConta->recuperaSaldo() . PHP_EOL;
+
+$patricia = new Titular(new CPF('698.549.548-10'), 'Patricia', $endereco);
+$segundaConta = new Conta($patricia);
 var_dump($segundaConta);
 
-$outraConta = new Conta(new Titular(new Cpf('987.654.321-00'), 'Abcdefg'));
-var_dump($outraConta);
+$outroEndereco = new Endereco('A', 'b', 'c', '1D');
+$outra = new Conta(new Titular(new CPF('123.654.789-01'), 'Abcdefg', $outroEndereco));
+unset($segundaConta);
 echo Conta::recuperaNumeroDeContas();
