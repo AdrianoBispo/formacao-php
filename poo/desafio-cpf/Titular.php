@@ -2,14 +2,24 @@
 
 class Titular
 {
-    private Cpf $cpf;
+    private $cpf;
     private $nome;
 
-    public function __construct(Cpf $cpf, string $nome)
+    public function __construct(CPF $cpf, string $nome)
     {
         $this->cpf = $cpf;
         $this->validaNomeTitular($nome);
         $this->nome = $nome;
+    }
+
+    public function recuperaCpf(): string
+    {
+        return $this->cpf->recuperaNumero();
+    }
+
+    public function recuperaNome(): string
+    {
+        return $this->nome;
     }
 
     private function validaNomeTitular(string $nomeTitular)
@@ -19,15 +29,4 @@ class Titular
             exit();
         }
     }
-
-    public function recuperaCpf(): string
-    {
-        return $this->cpf;
-    }
-
-    public function recuperaNome(): string
-    {
-        return $this->nome;
-    }
-
 }
