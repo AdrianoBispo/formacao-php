@@ -18,4 +18,9 @@ class Cpf
         
         $this->numero = $numero;
     }
+
+    public function recuperaNumero(): string
+    {
+        return $this->numero;
+    }
 }
