@@ -2,7 +2,7 @@
 
 class Conta
 {
-    private Titular $titular;
+    private $titular;
     private $saldo;
     private static $numeroDeContas = 0;
 
@@ -10,7 +10,13 @@ class Conta
     {
         $this->titular = $titular;
         $this->saldo = 0;
+
         self::$numeroDeContas++;
+    }
+
+    public function __destruct()
+    {
+        self::$numeroDeContas--;
     }
 
     public function saca(float $valorASacar): void
@@ -40,13 +46,23 @@ class Conta
             return;
         }
 
-        $this->saca($valorATransferir);
-        $contaDestino->deposita($valorATransferir);
+        $this->sacar($valorATransferir);
+        $contaDestino->depositar($valorATransferir);
     }
 
     public function recuperaSaldo(): float
     {
         return $this->saldo;
+    }
+
+    public function recuperaNomeTitular(): string
+    {
+        return $this->titular->recuperaNome();
+    }
+
+    public function recuperaCpfTitular(): string
+    {
+        return $this->titular->recuperaCpf();
     }
 
     public static function recuperaNumeroDeContas(): int
