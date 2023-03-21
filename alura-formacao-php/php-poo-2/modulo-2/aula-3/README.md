@@ -1,4 +1,4 @@
-# Namespace e Autoload - Utilizando os Namespaces
+## Namespace e Autoload - Utilizando os Namespaces
 
 Com as alterações que fizemos no vídeo anterior, o PHP não consegue mais encontrar as classes do nosso projeto, fazendo com que nosso sistema deixasse de funcionar. Ao executarmos, recebemos erros informando, por exemplo, que a classe <code>Pessoa</code> não foi criada no momento da criação da classe <code>Titular</code>. Portanto, faremos o <code>require</code> dessa classe.
 

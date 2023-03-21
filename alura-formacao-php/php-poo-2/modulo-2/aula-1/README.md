@@ -1,5 +1,3 @@
-# Módulo 2 - Aula 1
-
 ## Namespace e Autoload - Separação Física e Lógica
 
 Até o momento temos relativamente pouca coisa no nosso projeto, que é consistido basicamente de classes que fazem sentido no nosso modelo, como <code>Conta</code>, <code>Funcionario</code>, <code>Pessoa</code>, <code>Titular</code> e assim por diante. No futuro, poderemos ter também classes que realizam ações, ao invés de representarem um modelo de domínio - por exemplo, uma classe que encerra uma conta. A ideia é sermos capazes de separar classes de modelo das classes de serviço, que são as responsáveis por executar ações e funcionalidades. Portanto, começaremos a organizar o projeto com isso em mente.
