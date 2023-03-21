@@ -1,5 +1,17 @@
 # Módulo 2: Namespace e Autoload
 
+## Resumo sobre o que foi aprendido no Módulo 2:
+
+- Entendemos que é possível separar nossas classes em namespaces, assim como separamos arquivos em pastas;
+
+- Vimos que separando as classes em namespaces podemos ter classes com o mesmo nome em namespaces diferentes;
+
+- Utilizando um namespace raiz (chamado de _vendor namespace_ em algumas literaturas) podemos evitar conflitos com classes de pacotes externos que venhamos a utilizar;
+
+- Para utilizar uma classe precisamos importá-la utilizando <code>use</code> ou informar seu nome completo (com namespace) em todos os locais onde ela for utilizada;
+
+- Através de um autoloader com o PHP (<code>spl_autoload_register</code>) podemos evitar ficar utilizando <code>require</code> para incluir todos os arquivos necessários para executar o programa;
+
 ## Para saber mais: Namespaces
 
 É muito útil e uma boa prática fazermos uso de **_namespaces_** para separar as nossas classes em nossa aplicação. Para fazer bom uso deste recurso, devemos entender alguns detalhes.
@@ -40,3 +52,5 @@ class Conta
 ```
 
 Pra ler tudo isso com mais detalhes, (lei a documentação)[https://www.php.net/manual/en/language.namespaces.php]
+
+

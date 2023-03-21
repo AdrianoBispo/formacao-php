@@ -1,4 +1,4 @@
-# Namespace e Autoload - Autoload de Classes
+## Namespace e Autoload - Autoload de Classes
 
 Antes de prosseguirmos, recapitularemos rapidamente o que fizemos no último vídeo. Aprendemos que, se definimos uma classe utilizando um _namespace_, também precisaremos informá-lo ao utilizarmos essa classe. Isso pode ser feito diretamente na sua utilização, passando o seu endereço completo, ou com a instrução <code>use</code> no início do arquivo (fora da definição de qualquer classe ou função). Com as classes "importadas", poderemos utilizá-las normalmente com seu nome mais curto.
 
@@ -214,4 +214,4 @@ use Alura\Banco\Modelo\Conta\Conta;
 
 Feito isso, nosso sistema continuará funcionando corretamente. Agora entendemos o que é um __autoloader_, aprendemos a implementá-lo seguindo a **PSR-4** e vimos como ele funciona na prática. Como essa aula teve bastante conteúdo, não deixe conferir os exercícios e ler mais sobre a **PSR-4**, um conceito muito importante no desenvolvimento em PHP (ainda que existam ferramentas que fazem a sua implementação automaticamente).
 
-Com nosso código bem mais estruturado, voltaremos a conversar sobre o nosso projeto e a orientação a objetos. No próximo capítulo implementaremos uma tarifa de saque sobre as contas do banco!
+Para saber mais sobre a (**PSR-4**)[https://www.php-fig.org/psr/psr-4/]
