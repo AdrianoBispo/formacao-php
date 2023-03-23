@@ -1,10 +1,7 @@
 <?php
 
-use Alura\Banco\Modelo\Conta\ContaPoupanca;
-use Alura\Banco\Modelo\Conta\ContaCorrente;
-use Alura\Banco\Modelo\Conta\Titular;
-use Alura\Banco\Modelo\CPF;
-use Alura\Banco\Modelo\Endereco;
+use Alura\Banco\Modelo\Conta\{ContaPoupanca, ContaCorrente, Titular}; // Comprimi a referência
+use Alura\Banco\Modelo\{CPF, Endereco}; // Comprimi a referência
 
 require_once 'autoload.php';
 
@@ -19,4 +16,3 @@ $conta->deposita(500);
 $conta->saca(100);
 
 echo $conta->recuperaSaldo();
-
