@@ -8,4 +8,4 @@
 <p>Este repositório armazena os materiais de cursos de PHP realizados</p>
 
 - [Introdução](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
-- [Arquivos da Formação "Aprenda a Programar em PHP" da Alura](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
+- [Arquivos da Formação "Aprenda a Programar em PHP" da Alura](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php)
