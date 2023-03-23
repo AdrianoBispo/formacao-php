@@ -1,18 +1,26 @@
 <?php
 
-use Alura\Banco\Modelo\Conta\{ContaPoupanca, ContaCorrente, Titular}; // Comprimi a referência
-use Alura\Banco\Modelo\{CPF, Endereco}; // Comprimi a referência
-
 require_once 'autoload.php';
 
-$conta = new ContaPoupanca(
-    new Titular(
-        new CPF('123.456.789-10'),
-        'Adriano Vinícius',
-        new Endereco('Recife', 'Barro', 'Barão de Ladário', '68')
-    )
-);
-$conta->deposita(500);
-$conta->saca(100);
+use Alura\Banco\Service\ControladorDeBonificacoes; // Comprimi a referência
+use Alura\Banco\Modelo\{CPF, Funcionario}; // Comprimi a referência
 
-echo $conta->recuperaSaldo();
+$umFuncionario = new Funcionario(
+    'Adriano Vinícius',
+    new CPF('123.456.789-10'),
+    'Desenvolvedor',
+    1000
+);
+
+$umaFuncionaria = new Funcionario(
+    'Patricia',
+    new CPF('987.654.321-10'),
+    'Gerente',
+    3000
+);
+
+$controlador = new ControladorDeBonificacoes();
+$controlador->adicionaBonificacao($umFuncionaria);
+$controlador->adicionaBonificacao($umaFuncionaria);
+
+echo $controlador->recuperaTotal();
