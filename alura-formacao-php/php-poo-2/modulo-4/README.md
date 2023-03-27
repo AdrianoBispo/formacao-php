@@ -1,5 +1,8 @@
 # Módulo 4: Polimorfismo
 
+
+<!-- Documentação AULA 1 -->
+
 <details>
   <summary>
     <h2> Aula 1</h2>
@@ -217,7 +220,49 @@ No próximo vídeo faremos uma breve recapitulação e discutiremos uma nova fun
 
 </details>
 
-O que aprendi neste módulo:
+<!-- Documentação AULA 2 -->
+
+<details>
+  <summary>
+    <h2> Aula 2</h2>
+  </summary>
+
+  <h3> Bonificações Diferentes</h3>
+
+Vamos recapitular o que fizemos no vídeo anterior. Inicialmente incluímos um <code>$salario</code> na classe <code>Funcionario</code>, além de um _getter_ que recupera esse valor. No futuro, também poderemos implementar uma função que aumenta o salário do funcionário, mas isso é algo com que não nos preocuparemos por enquanto.
+
+Temos também um cálculo de bonificação, a partir do qual criamos nossa primeira **classe de serviço**, que executam alguma ação e não representam um modelo do negócio. Aqui, focaremos no fato de que elas não representam um objeto real, mas algo que existe no sistema que estamos criando.
+
+Na classe <code>ControladorDeBonificacoes</code>, conseguimos adicionar as bonificações de um funcionário e depois recuperar o total que foi adicionado, a última coisa que fizemos no vídeo anterior.
+
+A partir de agora, o banco instaurou uma nova regra determinando que os gerentes passarão a ganhar uma bonificação diferente, representando <code>100%</code> do seu salário. Uma primeira solução para essa implementação seria incluirmos, no método <code>calculaBonificacao()</code>, um operador <code>if</code> que verifica se o <code>$cargo</code> do funcionário é "Gerente". Em caso positivo, a bonificação será <code>$this->salario</code>, e do contrário continuará sendo <code>10%</code>.
+
+```php
+
+public function calculaBonificacao(): float
+{
+
+    if ($this->cargo === 'Gerente') {
+        return $this->salario;
+    }
+    return $this->salario * 0.1;
+}
+
+```
+
+Feito isso, a execução de <code>bonificacoes.php</code> passará a retornar o valor <code>3100</code>, já que Vinicius recebe <code>100</code> de bonificação (<code>10%</code> de <code>1000</code>) e Patricia recebe <code>3000</code> (<code>100%</code> de <code>3000</code>).
+
+Nosso cálculo está funcionando, mas incorremos em um problema, pois sabemos que não é adequado editarmos código existente a cada nova funcionalidade que é implementada. Além disso, agora surgiu também a necessidade de uma bonificação diferente para o Diretor. Se cada cargo está se comportando de maneira diferente, faz sentido criarmos classes específicas para eles.
+
+No próximo vídeo começaremos a trabalhar nisso.
+
+</details>
+
+
+
+
+
+### O que aprendi neste módulo:
 
 - Aprendi o 4º pilar da orientação a objetos que é o Polimorfismo;
 
