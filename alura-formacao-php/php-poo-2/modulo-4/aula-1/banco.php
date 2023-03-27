@@ -20,7 +20,7 @@ $umaFuncionaria = new Funcionario(
 );
 
 $controlador = new ControladorDeBonificacoes();
-$controlador->adicionaBonificacao($umFuncionaria);
+$controlador->adicionaBonificacao($umFuncionario);
 $controlador->adicionaBonificacao($umaFuncionaria);
 
 echo $controlador->recuperaTotal();
