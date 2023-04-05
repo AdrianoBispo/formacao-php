@@ -620,7 +620,7 @@ Agora que conhecemos os quatro pilares da orientação a objetos, vamos revisita
 
 </details>
 
-### Resumo sobre Polimorfismo
+## Resumo sobre Polimorfismo
 
 Até aqui, já tínhamos visto três dos quatro pilares da orientação a objetos:
 
@@ -636,7 +636,7 @@ Polimorfismo é a capacidade de um objeto poder ser referenciado de várias form
 
 Com isso podemos, por exemplo, receber um <<code>Funcionario</code> por parâmetro em uma __função/método__ e passar um <code>Gerente</code>. Podemos nos referir à instância de <code>Gerente</code> de mais de uma forma, e isso nos pode ser útil em vários casos, como já vimos nesta aula.
 
-### Resumo do que aprendi neste módulo:
+## Resumo do que aprendi neste módulo:
 
 - Aprendi o 4º pilar da orientação a objetos que é o Polimorfismo;
 
