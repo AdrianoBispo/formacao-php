@@ -1,6 +1,5 @@
 # Módulo 4: Polimorfismo
 
-
 <!-- Documentação AULA 1 -->
 
 <details>
@@ -259,8 +258,331 @@ No próximo vídeo começaremos a trabalhar nisso.
 </details>
 
 
+<!-- Documentação AULA 3 -->
+
+<details>
+  <summary>
+    <h2> Aula 3</h2>
+  </summary>
+
+  <h3> Implementando Classes Filhas </h3>
+
+No momento temos uma bonificação geral da empresa, uma específica para o Gerente, e precisamos implementar outra para o Diretor. Porém, sabemos que adicionar várias sequências de <code>if</code> no código é um sinal da necessidade de criarmos novas classes/hierarquias. A ideia, portanto, é termos classes específicas para cada um dos cargos da empresa.
+
+Antes disso, criaremos no diretório "Modelo" uma nova pasta "Funcionario" na qual armazenaremos esses cargos de modo a mantê-los organizados. Moveremos o arquivo <code>Funcionario.php</code> para essa pasta, o que tornará necessário modificarmos o seu namespace para <code>Alura\Banco\Modelo\Funcionario</code>. Além disso, também precisaremos importar as classes <code>Pessoa</code> e <code>CPF</code>.
+
+```php
+
+namespace Alura\Banco\Modelo\Funcionario;
+
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Pessoa;
+
+class Funcionario extends Pessoa
+{
+    private $cargo;
+    private $salario;
+
+    public function __construct(string $nome, CPF $cpf, string $cargo, float $salario)
+    {
+        parent::__construct($nome, $cpf);
+        $this->cargo = $cargo;
+        $this->salario = $salario;
+    }
+//...
+
+```
+
+Feito isso, criaremos uma nova classe <code>Gerente</code> que herdará de <code>Funcionario</code> com <code>extends</code> e implementará m método <code>calculabonificacao()</code> que simplesmente retornará a chamada de <code>$this->recuperaSalario()</code>, já que a sua bonificação é um salário completo.
+
+```php
+
+namespace Alura\Banco\Modelo\Funcionario;
+
+class Gerente extends Funcionario
+{
+    public function calculaBonificacao(): float
+    {
+        return $this->recuperaSalario();
+    }
+}
+
+```
+
+Repare que, como não temos acesso direto ao atributo <code>$salario</code>, usamos o __getter__ <code>recuperaSalario()</code> para obter o seu valor. Prosseguiremos para a criação da classe <code>Diretor</code>, que terá as mesmas características da anterior, com a diferença de que sua bonificação será o dobro do salário - ou seja, a multiplicação de <code>this->recuperaSalario()</code> por <code>2</code>.
+
+```php
+
+namespace Alura\Banco\Modelo\Funcionario;
+
+class Diretor extends Funcionario
+{
+    public function calculaBonificacao(): float
+    {
+        return $this->recuperaSalario() * 2;
+    }
+}
+
+```
+
+Com isso o <code>if</code> no cálculo da bonificação do <code>Funcionario</code> deixará de ser necessário, já que a sua bonificação será sempre de <code>10%</code>.
+
+```php
+
+public function calculaBonificacao(): float
+{
+    return $this->salario * 0.1;
+}
+
+```
+
+Tanto <code>Gerente</code> quanto <code>Diretor</code> sobrescrevem o método <code>calculaBonificacao()</code> à sua maneira, resultando em suas bonificações diferenciadas. Aproveitaremos esse momento para começar também a implementação de um sistema interno do banco, no qual o <code>Diretor</code> possui um método <code>podeAutenticar()</code> que recebe uma __string__ <code>$senha</code> e retorna um booleano.
+
+Caso a <code>$senha</code> correta seja informada - nesse caso <code>1234</code> -, retornaremos verdadeiro, autorizando a autenticação. Do contrário, essa autenticação não será feita.
+
+```php
+
+class Diretor extends Funcionario
+{
+    public function calculaBonificacao(): float
+    {
+        return $this->recuperaSalario() * 2;
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === '1234';
+    }
+}
+
+```
+
+No futuro trabalharemos mais a fundo nessa ideia de autenticação. No momento temos uma classe base <code>Funcionario</code>, totalmente funcional, que possui a sua bonificação. As classes <code>Gerente</code> e <code>Diretor</code> também possuem essa funcionalidade, mas o cálculo é feito de outra forma - ou seja, a sua implementação sobrescreve a original. Além disso, o <code>Diretor</code> possui uma nova funcionalidade, que é a autenticação.
+
+Esse é um conceito importante da herança: uma classe que estende outra não precisa ter somente os métodos da classe base/mãe, podendo ter os seus próprios.
+
+Antes de realizarmos nossos testes, não podemos nos esquecer de corrigir a importação de <code>Funcionario</code> no <code>ControladorDeBonificacoes</code>.
+
+```php
+
+namespace Alura\Banco\Service;
 
 
+use Alura\Banco\Modelo\Funcionario\Funcionario;
+
+class ControladorDeBonificacoes
+{
+    private $totalBonificacoes = 0;
+
+    public function adicionaBonificacaoDe(Funcionario $funcionario)
+    {
+        $this->totalBonificacoes += $funcionario->calculaBonificacao();
+    }
+
+    public function recuperaTotal(): float
+    {
+        return $this->totalBonificacoes;
+    }
+
+}
+
+```
+
+Em <code>bonificacoes.php</code>, passaremos a criar uma instância de <code>Funcionario</code> e outra de <code>Gerente</code>, fazendo também as importações necessárias.
+
+```php
+
+require_once 'autoload.php';
+
+use Alura\Banco\Modelo\Funcionario\{Funcionario, Gerente};
+use Alura\Banco\Service\ControladorDeBonificacoes;
+use Alura\Banco\Modelo\CPF;
+
+$umFuncionario = new Funcionario(
+    'Vinicius Dias',
+    new CPF('123.456.789-10'),
+    'Desenvolvedor',
+    1000
+);
+
+$umaFuncionaria = new Gerente(
+    'Patricia',
+    new CPF('987.654.321-10'),
+    'Gerente',
+    3000
+);
+
+
+$controlador = new ControladorDeBonificacoes();
+$controlador->adicionaBonificacaoDe($umFuncionario);
+$controlador->adicionaBonificacaoDe($umaFuncionaria);
+
+echo $controlador->recuperaTotal();
+
+```
+
+Executando o código dessa forma, teremos como retorno <code>3100</code>, o mesmo valor que recebíamos anteriormente. Prosseguiremos criando também uma instância de <code>Diretor</code> chamada <code>$umDiretor</code>, e que receberá como parâmetros o nome **"Ana Paula"**, o <code>CPF</code> **"123.951.789-11"**, o cargo **"Diretor"** e o salário <co>5000</code>. Como nossas classes agora são cargos da empresa, já podemos pensar na possibilidade de removermos o atributo <code>$cargo</code>.
+
+```php
+
+require_once 'autoload.php';
+
+use Alura\Banco\Modelo\Funcionario\{Diretor, Funcionario, Gerente};
+use Alura\Banco\Service\ControladorDeBonificacoes;
+use Alura\Banco\Modelo\CPF;
+
+$umFuncionario = new Funcionario(
+    'Vinicius Dias',
+    new CPF('123.456.789-10'),
+    'Desenvolvedor',
+    1000
+);
+
+$umaFuncionaria = new Gerente(
+    'Patricia',
+    new CPF('987.654.321-10'),
+    'Gerente',
+    3000
+);
+
+$umDiretor = new Diretor(
+    'Ana Paula', new CPF('123.951.789-11'),
+    'Diretor', 5000
+);
+
+$controlador = new ControladorDeBonificacoes();
+$controlador->adicionaBonificacaoDe($umFuncionario);
+$controlador->adicionaBonificacaoDe($umaFuncionaria);
+$controlador->adicionaBonificacaoDe($umDiretor);
+
+echo $controlador->recuperaTotal();
+
+```
+
+Executando esse código, teremos como retorno <code>13100</code>, que é a soma correta das bonificações desses funcionários. Agora, se quisermos criar um novo cargo, faremos isso com uma nova classe. Por exemplo, criaremos uma classe <code>Desenvolvedor</code> que estende de <code>Funcionario</code> e cuja bonificação será <code>5%</code> do seu salário.
+
+```php
+
+namespace Alura\Banco\Modelo\Funcionario;
+
+
+class Desenvolvedor extends Funcionario
+{
+    public function calculaBonificacao(): float
+    {
+        return $this->recuperaSalario() * 0.05;
+    }
+}
+
+```
+
+Voltaremos então ao arquivo <code>bonificacoes.php</code>, onde passaremos a importar a nova classe a instanciá-la em <code>$umFuncionario</code>.
+
+```php
+
+use Alura\Banco\Modelo\Funcionario\{Diretor, Funcionario, Gerente, Desenvolvedor};
+use Alura\Banco\Service\ControladorDeBonificacoes;
+use Alura\Banco\Modelo\CPF;
+
+$umFuncionario = new Desenvolvedor(
+    'Vinicius Dias',
+    new CPF('123.456.789-10'),
+    'Desenvolvedor',
+    1000
+);
+//...
+
+```
+
+Note que agora deixou de fazer sentido instanciarmos um <code>Funcionario</code> diretamente, já que nosso banco - e na verdade nenhuma empresa - contrata um funcionário sem atribuição. Pensando nisso, como visto no capítulo anterior, passaremos a chamar essa classe de abstrata.
+
+```php
+
+abstract class Funcionario extends Pessoa
+{
+    private $cargo;
+    private $salario;
+
+    public function __construct(string $nome, CPF $cpf, string $cargo, float $salario)
+    {
+        parent::__construct($nome, $cpf);
+        $this->cargo = $cargo;
+        $this->salario = $salario;
+    }
+//...
+
+```
+
+Agora receberemos um erro se tentarmos instanciar um novo funcionário, já que não é possível instanciar uma classe abstrata. Outro ponto a ser ajustado é que as classes filhas <code>Diretor</code>, <code>Gerente</code> e <code>Desenvolvedor</code> funcionam normalmente mesmo que não tenham um método <code>calculaBonificacao()</code>, passando a receber aquela definida em <code>Funcionario</code>, já que, sem a presença da sobrescrita do método, o da __class base__ passa a ser válido.
+
+Nesse caso trabalharemos com a classe <code>Desenvolvedor</code>, da qual removeremos o método <code>calculaBonificacao()</code>. Sabemos que um desenvolvedor pode subir de nível, passando por Junior, Pleno e Sênior. Portanto, criaremos um método <code>sobeDeNivel()</code> que será responsável pelo seu aumento de salário.
+
+```php
+
+class Desenvolvedor extends Funcionario
+{
+    public function sobeDeNivel()
+    {
+
+    }
+}
+
+```
+
+Antes de fazermos essa implementação, criaremos em <code>Funcionario</code> um método <code>recebeAumento()</code> que recebe como parâmetro um <code>float $valorAumento</code>. Caso esse valor seja menor do que zero, retornaremos a mensagem "Aumento deve ser positivo" e encerraremos a execução. Do contrário, incrementaremos o atributo <code>$salario</code> da instância com o <code>$valorAumento</code>.
+
+```php
+
+public function recebeAumento(float $valorAumento): void
+{
+    if ($valorAumento < 0) {
+        echo "Aumento deve ser positivo";
+        return;
+    }
+
+    $this->salario += $valorAumento;
+}
+
+```
+
+Quando um <code>Desenvolvedor</code> subir de nível, executaremos o método <code>recebeAumento()</code> passando como parâmetro a multiplicação do seu salário por <code>0.75</code>.
+
+```php
+
+class Desenvolvedor extends Funcionario
+{
+    public function sobeDeNivel()
+    {
+        $this->recebeAumento($this->recuperaSalario() * 0.75);
+    }
+}
+
+```
+
+Repare que não somente o nosso <code>Diretor</code> pôde ter funcionalidades novas, como também o <code>Desenvolvedor</code>. Para testarmos, no arquivo <code>bonificacoes.php</code>, depois de instanciarmos o <code>Desenvolvedor</code> em <code>$umFuncionario</code>, executaremos a chamada de <code>$umFuncionario->sobeDeNivel()</code>.
+
+```php
+
+$umFuncionario = new Desenvolvedor(
+    'Vinicius Dias',
+    new CPF('123.456.789-10'),
+    'Desenvolvedor',
+    1000
+);
+
+$umFuncionario->sobeDeNivel();
+
+```
+
+Se executarmos esse arquivo, a bonificação será maior: **13175**
+
+Vamos recapitular? Tínhamos regras muito complexas no cálculo da bonificação dos nossos funcionários, nos obrigando a editar uma funcionalidade já existente toda vez que criássemos um novo cargo - algo que sabemos não ser ideal. Pensando nisso, criamos classes específicas para cada atribuição - <code>Diretor</code>, <code>Gerente</code> e <code>Desenvolvedor</code>, cada uma com sua bonificação específica (ou a bonificação padrão de um <code>Funcionario</code>) ou contendo funcionalidades extras.
+
+Feitas essas alterações, a criação de um <code>Funcionario</code> deixou de fazer sentido, portanto a tornamos abstrata. A partir de agora, podemos criar novos cargos a partir de novas classes.
+
+Porém, ainda existe um detalhe a ser resolvido. O método <code>adicionaBonificacaoDe()</code> ainda recebe um <code>Funcionario</code>, mas estamos passando um objeto do tipo <code>Desenvolvedor</code>, <code>Gerente</code> ou <code>Diretor</code>. Conversaremos melhor sobre isso no próximo vídeo.
+
+</details>
 
 ### O que aprendi neste módulo:
 
