@@ -1,5 +1,22 @@
 # Módulo 4: Polimorfismo
 
+## Resumo sobre Polimorfismo
+
+Até aqui, já tínhamos visto três dos quatro pilares da orientação a objetos:
+
+1. Abstração
+2. Encapsulamento
+3. Herança
+
+Nesta aula, começamos a falar sobre o __4º pilar__: **Polimorfismo**.
+
+Este __4º princípio está diretamente ligado ao 3º (herança)__, pois __através da herança conseguimos alcançar o polimorfismo__.
+
+Polimorfismo é a capacidade de um objeto poder ser referenciado de várias formas (cuidado, polimorfismo não quer dizer que o objeto fica se transformando, muito pelo contrário, um objeto nasce de um tipo e morre daquele tipo, o que pode mudar é a maneira como nos referimos a ele).
+
+Com isso podemos, por exemplo, receber um <<code>Funcionario</code> por parâmetro em uma __função/método__ e passar um <code>Gerente</code>. Podemos nos referir à instância de <code>Gerente</code> de mais de uma forma, e isso nos pode ser útil em vários casos, como já vimos nesta aula.
+
+
 <!-- Documentação AULA 1 -->
 
 <details>
@@ -620,23 +637,7 @@ Agora que conhecemos os quatro pilares da orientação a objetos, vamos revisita
 
 </details>
 
-### Resumo sobre Polimorfismo
-
-Até aqui, já tínhamos visto três dos quatro pilares da orientação a objetos:
-
-1. Abstração
-2. Encapsulamento
-3. Herança
-
-Nesta aula, começamos a falar sobre o __4º pilar__: **Polimorfismo**.
-
-Este __4º princípio está diretamente ligado ao 3º (herança)__, pois __através da herança conseguimos alcançar o polimorfismo__.
-
-Polimorfismo é a capacidade de um objeto poder ser referenciado de várias formas (cuidado, polimorfismo não quer dizer que o objeto fica se transformando, muito pelo contrário, um objeto nasce de um tipo e morre daquele tipo, o que pode mudar é a maneira como nos referimos a ele).
-
-Com isso podemos, por exemplo, receber um <<code>Funcionario</code> por parâmetro em uma __função/método__ e passar um <code>Gerente</code>. Podemos nos referir à instância de <code>Gerente</code> de mais de uma forma, e isso nos pode ser útil em vários casos, como já vimos nesta aula.
-
-### Resumo do que aprendi neste módulo:
+## Resumo do que aprendi neste módulo:
 
 - Aprendi o 4º pilar da orientação a objetos que é o Polimorfismo;
 
