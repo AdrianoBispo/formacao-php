@@ -249,6 +249,47 @@ Uma primeira solução para isso seria passarmos a receber, no método tentaLogi
 
 </details>
 
+
+<!-- Documentação AULA 3 -->
+
+<details>
+  <summary>
+    <h2> Aula 3</h2>
+  </summary>
+
+  <h3> Herança Múltipla </h3>
+
+Terminamos o vídeo anterior com uma nova demanda, na qual, além do Diretor, um Gerente também deve conseguir se autenticar. Sabemos que não é ideal dependermos do Funcionario para isso, pois implicaria na inclusão de diversos if no nosso código, mas a herança pode nos ajudar a resolver esse problema.
+
+Por exemplo, podemos fazer com que Diretor e Gerente estendam de outra classe, chamada FuncionarioAutenticavel. Assim, evitaremos que o Desenvolvedor e o EditorVideo tenham acesso à autenticação.
+
+<img src="https://caelum-online-public.s3.amazonaws.com/1538-php-oo-parte-2/Transcricao/autenticavel.png" alt="Diagrama exemplificando" />
+
+Ou seja, além da classe Funcionario, teremos uma outra chamada FuncionarioAutenticavel possuindo um método podeAutenticar() que ficará acessível tanto a Diretor quanto a Gerente.
+
+Agora imagine que temos uma nova demanda na qual o Titular de uma conta também deverá ter acesso ao sistema. Nesse caso, bastará fazermos com que essa classe também estenda de FuncionarioAutenticavel, certo? Na verdade isso não faz sentido, afinal o Titular não é um FuncionarioAutenticavel, nem mesmo necessariamente um Funcionario. Isso faria, por exemplo, com que o Titular tivesse um salário e passasse a receber bonificação. Ou seja, teremos que pensar em outra abordagem.
+
+Uma ideia seria criarmos uma classe separada, chamada Autenticavel, que poderia ser estendida tanto por Titular quanto por Diretor e Gerente. A possibilidade de uma classe filha estender de mais de uma classe base/mãe é o que chamamos de herança múltipla. Nesse caso, Diretor e Gerente estenderão tanto de Autenticavel quanto de Funcionario.
+
+<img src="https://caelum-online-public.s3.amazonaws.com/1538-php-oo-parte-2/Transcricao/autenticavel2.png" alt="Diagrama exemplificando" />
+
+Isso é possível em linguagens como o C++, mas não em outras, como Java e o próprio PHP. Mas se a herança múltipla parece algo tão útil, por que ela não existe em PHP?
+
+Imagine que tenhamos na classe Funcionario um método chamado teste(), e outro com o mesmo nome na classe Autenticavel. Se Diretor herdar das duas classes, qual das duas implementações será herdada e executada quando o método teste() for chamado em uma instância de Diretor? Chamamos esse cenário de problema diamante, em referência ao desenho formado pela implementação lógica desse problema.
+
+Como o PHP é uma das linguagens que não implementa a herança múltipla, teremos que encontrar outra forma de implementar um método podeAutenticar(), de maneira parecida com a existência de uma classe Autenticavel, mas mantendo somente a herança de Funcionario. Ou seja, a ideia é termos uma outra estrutura, que não é uma classe, firmando uma espécie de "contrato" que permitirá acesso ao método desejado. Entenderemos que estrutura é essa e como implementá-la no próximo vídeo.
+
+### Para saber mais: Problema Diamante
+
+Diversas linguagens de programação modernas abriram mão de permitir a herança múltipla, devido a um problema conhecido como **Problema Diamante**.
+
+Se quiser entender mais sobre o assunto, é uma pesquisa que vale a pena. Aqui estão alguns links:
+
+<a href="https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem">The diamond problem</a>
+<a href="https://www.alura.com.br/apostila-python-orientacao-a-objetos/heranca-multipla-e-interfaces#problema-do-diamante">Problema do diamante</a>
+
+</details>
+
 ## O que aprendi neste módulo:
 
 - Entendi o conceito de herança múltipla e o porquê de muitas linguagens (PHP inclusive) não a permitirem;
