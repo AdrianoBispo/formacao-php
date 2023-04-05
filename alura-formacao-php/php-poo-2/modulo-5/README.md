@@ -161,6 +161,94 @@ Repare que uma classe pode ser abstrata mesmo que ela não tenha métodos abstra
 
 </details>
 
+
+<!-- Documentação AULA 2 -->
+
+<details>
+  <summary>
+    <h2> Aula 2</h2>
+  </summary>
+
+  <h3> Sistema de Login </h3>
+
+Nosso objetivo agora é implementarmos um sistema de login, algo que já comentamos anteriormente - inclusive, a entidade Diretor já possui um método podeAutenticar() que será usado nesse processo. No diretório "Service", criaremos uma nova classe de serviço Autenticador na na qual teremos um método tentaLogin() que recebe como parâmetros um Diretor e uma string $senha.
+
+```php
+
+class Autenticador
+{
+    public function tentaLogin(Diretor $diretor, string $senha): void
+    {
+
+    }
+}
+
+```
+
+No corpo do método, usaremos o operador if para verificarmos se $diretor->podeAutenticar() com a $senha recebida. Em caso positivo, mostraremos a mensagem "Ok. Usuário logado no sistema"; do contrário, se a senha estiver errada, exibiremos a mensagem "Ops. Senha incorreta".
+
+```php
+
+class Autenticador
+{
+    public function tentaLogin(Diretor $diretor, string $senha): void
+    {
+        if ($diretor->podeAutenticar($senha)) {
+            echo "Ok. Usuário logado no sistema";
+        } else {
+         echo "Ops. Senha incorreta.";
+        }
+    }
+}
+
+```
+
+Para testarmos, criaremos na raiz do projeto um novo arquivo autenticacao.php. Nele importaremos o autoload.php e criaremos um novo $autenticador, além de um Diretor com o nome "João da Silva", o CPF "123.456.789-10" e o salário 10000.
+
+```php
+
+<?php
+
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Funcionario\Diretor;
+use Alura\Banco\Service\Autenticador;
+
+require_once 'autoload.php';
+
+$autenticador = new Autenticador();
+$diretor = new Diretor(
+    'João da Silva',
+    new CPF('123.456.789-10'),
+    10000
+);
+
+```
+
+Prosseguindo, chamaremos o método $autenticador->tentaLogin() passando o $diretor criado e a senha 4321.
+
+```php
+
+$autenticador = new Autenticador();
+$diretor = new Diretor(
+    'João da Silva',
+    new CPF('123.456.789-10'),
+    10000
+);
+
+$autenticador->tentaLogin($diretor, '4321');
+
+```
+
+Ao executarmos o arquivo, teremos como retorno: **__Ops. Senha incorreta.__**
+
+Já se alterarmos a senha para 1234, receberemos a mensagem de sucesso: **__Ok. Usuário logado no sistema__**
+
+Concluímos então a implementação de um autenticador simulado, ainda que bastante simples. Agora surgiu uma nova demanda do banco na qual o Gerente também deverá se autenticar no nosso sistema.
+
+Uma primeira solução para isso seria passarmos a receber, no método tentaLogin(), um Funcionario. Entretanto, isso implica na possibilidade do Desenvolvedor e do EditorVideo também se logarem - ou seja, essa não é a solução ideal. No próximo vídeo conversaremos sobre algumas alternativas.
+
+</details>
+
 ## O que aprendi neste módulo:
 
 - Entendi o conceito de herança múltipla e o porquê de muitas linguagens (PHP inclusive) não a permitirem;
