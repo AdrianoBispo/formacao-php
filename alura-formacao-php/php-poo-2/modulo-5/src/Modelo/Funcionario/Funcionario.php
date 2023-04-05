@@ -36,8 +36,4 @@ abstract class Funcionario extends Pessoa
         return $this->salario;
     }
 
-    public function calculaBonificacao(): float
-    {
-        return $this->salario * 0.1;
-    }
 }
