@@ -584,7 +584,59 @@ Porém, ainda existe um detalhe a ser resolvido. O método <code>adicionaBonific
 
 </details>
 
-### O que aprendi neste módulo:
+
+<!-- Documentação AULA 4 -->
+
+<details>
+  <summary>
+    <h2> Aula 4 </h2>
+  </summary>
+
+  <h3> Polimorfismo </h3>
+
+Nos capítulos anteriores nós conhecemos três dos quatro pilares da programação orientada a objetos: **herança**, **abstração** e **encapsulamento**. Agora introduziremos o quarto e último pilar, um conceito complexo e que provavelmente não ficará completamente explícito nesse momento.
+
+Note que no arquivo <code>bonificacoes.php</code> estamos trabalhando com referências de três tipos diferentes, no caso <code>Desenvolvedor</code>, <code>Gerente</code> e <code>Diretor</code>. Todas elas são passadas para o método <cpde>dicionaBonificacaoDe()</code>, que teoricamente recebe uma referência do tipo <code>Funcionario</code>. Entretanto, nenhuma execução do nosso código quebrou.
+
+Vamos refletir sobre isso. Uma referência de <code>Desenvolvedor</code> consegue se passar por uma referência de <code>Funcionario</code>? Na verdade sim, pois um <code>Desenvolvedor</code> estende de <code>Funcionario</code>, possuindo todas as características dessa classe. O mesmo vale para o <code>Gerente</code> e o <code>Diretor</code>. Sendo assim, quando uma referência chega ao método <code>adicionaBonificacao()</code>, o importante é que seu tipo equivala a um <code>Funcionario</code>, independentemente do fato dessa referência ser mais específica.
+
+Esse conceito fica um pouco mais nebuloso no PHP, pois ainda não conseguimos definir o tipo de uma variável. Sendo assim, vamos ilustrar.
+
+<img src="https://caelum-online-public.s3.amazonaws.com/1538-php-oo-parte-2/Transcricao/ilustra.png" alt="Ilustração " />
+
+Temos aqui a definição de uma variável <code>$umFuncionario</code> que faz referência a um <code>Gerente</code>. Em seguida, chamamos o método <code>adicionaBonificacoes()</code> passando esse <code>$umFuncionario</code>. Na implementação do método, ele recebe a variável <code>$funcionario</code>, que é uma referência de <code>Funcionario</code>.
+
+A variável <code>$funcionario</code> que é passada para o método é, na verdade, uma referência de <code>Funcionario</code>, independentemente de qual seja o objeto instanciado. Da mesma forma, se instanciarmos <code>$umFuncionario</code> como <code>Diretor</code>, a referência recebida em <code>adicionaBonificacao()</code> continuará sendo do tipo <code>Funcionario</code>.
+
+O método em si não se importa com qual o tipo do objeto, desde que ele seja um <code>Funcionario</code>. Esse é o conceito de **polimorfismo**, que estipula que uma referência pode ter vários tipos e se comportar de formas diferentes, mas existindo semelhanças o suficiente de modo a atender a alguns requisitos.
+
+No nosso caso, tanto faz termos um <code>Gerente</code>, <code>Diretor</code> ou <code>Desenvolvedor</code>, desde o método <code>adicionaBonificacao()</code> seja capaz de calcular a sua bonificação, por meio da chamada de <code>calculaBonificacao()</code> e obstante a forma que o objeto faça isso.
+
+Note que uma mesma referência pode ter comportamentos diferentes em situações diferentes. Por exemplo, em <code>bonificacoes.php</code>, o nosso <code>$umFuncionario</code> consegue se comportar como <code>Desenvolvedor</code>, chamando o método <code>sobeDeNivel()</code>, ou como um <code>Funcionario</code> genérico ao ser capaz de ser passado como parâmetro para <code>adicionaBonificacao()</code>.
+
+O **polimorfismo é um conceito bastante complexo**, __principalmente em questões teóricas__, mas é muito utilizado durante o desenvolvimento. Na prática, podemos simplesmente pensar que se um <code>Desenvolvedor</code> é um <code>Funcionario</code>, faz sentido sermos capazes de utilizá-lo em métodos que precisam de um.
+
+Agora que conhecemos os quatro pilares da orientação a objetos, vamos revisitar alguns conceitos importantes e pensar no que pode ser feito quando nos deparamos com a necessidade de uma herança mais complexa.
+
+</details>
+
+### Resumo sobre Polimorfismo
+
+Até aqui, já tínhamos visto três dos quatro pilares da orientação a objetos:
+
+1. Abstração
+2. Encapsulamento
+3. Herança
+
+Nesta aula, começamos a falar sobre o __4º pilar__: **Polimorfismo**.
+
+Este __4º princípio está diretamente ligado ao 3º (herança)__, pois __através da herança conseguimos alcançar o polimorfismo__.
+
+Polimorfismo é a capacidade de um objeto poder ser referenciado de várias formas (cuidado, polimorfismo não quer dizer que o objeto fica se transformando, muito pelo contrário, um objeto nasce de um tipo e morre daquele tipo, o que pode mudar é a maneira como nos referimos a ele).
+
+Com isso podemos, por exemplo, receber um <<code>Funcionario</code> por parâmetro em uma __função/método__ e passar um <code>Gerente</code>. Podemos nos referir à instância de <code>Gerente</code> de mais de uma forma, e isso nos pode ser útil em vários casos, como já vimos nesta aula.
+
+### Resumo do que aprendi neste módulo:
 
 - Aprendi o 4º pilar da orientação a objetos que é o Polimorfismo;
 
