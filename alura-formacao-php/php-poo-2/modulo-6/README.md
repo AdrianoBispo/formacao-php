@@ -220,6 +220,80 @@ Para que você se aprofunde mais nesse assunto, fica o desafio de fazer com o m�
 
 Agora voltaremos ao assunto da herança. No nosso sistema a classe Endereco representa uma entidade o mais específica possível. Ou seja, não existiria, por exemplo, uma classe EnderecoDosEUA que herdasse dessa classe, adicionando uma nova informação. Pensando nisso, queremos impedir a herança dessa classe. Descobriremos se isso é possível no próximo vídeo.
 
+#### Exercício Proposto
+
+Envie aqui sua proposta do método <code>__set</code> e veja a solução de outros alunos:
+
+https://cursos.alura.com.br/forum/topico-exercicio-__set-98206
+
+</details>
+
+<!-- Documentação AULA 3 -->
+
+<details>
+  <summary>
+    <h2> Aula 3 </h2>
+  </summary>
+
+  <h3> Impedindo a Herança </h3
+
+Existem alguns casos, ainda que raros, nos quais desejamos impedir a herança. Por exemplo, não queremos que nenhuma classe estenda de Endereco ou CPF, pois essas são classes definitivas e únicas. Para isso, precisamos informar ao PHP que, independentemente de como for a hierarquia até aquele ponto, a classe com que estamos trabalhando é a final - algo que é feito usando exatamente a palavra final.
+
+```php
+
+final class CPF
+{
+    private $numero;
+
+    public function __construct(string $numero)
+    {
+        $numero = filter_var($numero, FILTER_VALIDATE_REGEXP, [
+            'options' => [
+                'regexp' => '/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/'
+            ]
+        ]);
+        if ($numero === false) {
+            echo "Cpf inválido";
+            exit();
+        }
+        $this->numero = $numero;
+    }
+//...
+
+```
+
+Quando informamos que uma classe final, a própria IDE adiciona um "pin" visual indicando que ela foi fixada e não pode mais ser herdada. Inclusive, se tentarmos estender CPF em algum ponto do código, o PhpStorm nem mesmo encontrará a classe. Mesmo passando todo o endereço de CPF, incluindo o seu namespace, teremos um erro indicando que não é possível herdar de uma classe que tem final na sua definição.
+
+Repetiremos esse processo para a classe Endereco, impedindo que ela também seja herdada. Continuando nesse raciocínio, temos na classe Pessoa um método validaNomeTitular(), que renomearemos para validaNome() de modo a adequá-lo melhor à sua funcionalidade.
+
+```php
+
+protected function validaNome(string $nomeTitular)
+{
+    if (strlen($nomeTitular) < 5) {
+        echo "Nome precisa ter pelo menos 5 caracteres";
+        exit();
+    }
+}
+
+```
+
+O método validaNome() pode ser usado também pelas classes filhas, mas não queremos que ele seja modificado, por exemplo criando em Funcionario um novo método validaNome() que não faz absolutamente nada. Para que isso se torne proibido, também podemos usar a palavra-chave final.
+
+```php
+
+final protected function validaNome(string $nomeTitular)
+{
+    if (strlen($nomeTitular) < 5) {
+        echo "Nome precisa ter pelo menos 5 caracteres";
+        exit();
+    }
+}
+
+```
+
+A classe Pessoa continuará sendo herdada sem problemas, mas o método validaNome() não mais poderá ser sobrescrito. Com isso ganhamos segurança no nosso sistema de hierarquia de classes, controlando quais comportamentos podem ou não ser adicionados. Isso é bastante interessante, por exemplo, em situações nas quais criamos classes que serão utilizadas por várias outras pessoas.
+
 </details>
 
 ## O que aprendi neste módulo:
