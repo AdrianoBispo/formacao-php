@@ -1,5 +1,6 @@
 # Métodos Mágicos
 
+
 <!-- Documentação AULA 1 -->
 
 <details>
@@ -100,6 +101,7 @@ Perceba que o método mágico __toString() nos permite representar qualquer obje
 Agora que conhecemos um novo método mágico, queremos acessar$umEndereco->rua diretamente, sem chamarmos o método recuperaRua(). Conversaremos sobre essa possibilidade no próximo vídeo.
 
 </details>
+
 
 <!-- Documentação AULA 2 -->
 
@@ -228,6 +230,7 @@ https://cursos.alura.com.br/forum/topico-exercicio-__set-98206
 
 </details>
 
+
 <!-- Documentação AULA 3 -->
 
 <details>
@@ -293,6 +296,106 @@ final protected function validaNome(string $nomeTitular)
 ```
 
 A classe Pessoa continuará sendo herdada sem problemas, mas o método validaNome() não mais poderá ser sobrescrito. Com isso ganhamos segurança no nosso sistema de hierarquia de classes, controlando quais comportamentos podem ou não ser adicionados. Isso é bastante interessante, por exemplo, em situações nas quais criamos classes que serão utilizadas por várias outras pessoas.
+
+</details>
+
+
+<!-- Documentação AULA 3 -->
+
+<details>
+  <summary>
+    <h2> Aula 3 </h2>
+  </summary>
+
+  <h3> Impedindo a Herança </h3
+
+Nesse capítulo falamos sobre algumas peculiaridades do PHP, como os métodos mágicos, e nesse vídeo bônus comentaremos sobre outra: as traits.
+
+Em Endereco, estamos usando o método __get() para pegarmos o nome de um atributo e o transformarmos no nome do método acessor desse mesmo atributo. Porém, não é só o Endereco que possui atributos privados que gostaríamos de acessar. Por exemplo, poderíamos ler o $nome e o $cpf da classe Pessoa, sem precisarmos chamar os métodos acessores desses atributos.
+
+Uma solução para isso seria criarmos uma classe extra que servisse de herança para Endereco e Pessoa e possuísse o método desejado. Entretanto, estaríamos obrigando classes completamente diferentes a herdarem de uma terceira simplesmente para ganharmos acesso a um método, às vezes até mesmo impedindo uma classe mais importante de ser herdada, já que o PHP não permite a herança múltipla. Além disso, o método recuperaRua(), por exemplo, não poderia ser chamado de uma classe base, incorrendo em mais um problema com a herança.
+
+Outra alternativa é simplesmente copiarmos a estrutura do método __get() e colarmos na classe Pessoa, algo que sabemos que não é ideal. Seria interessante se existisse uma forma do próprio PHP copiar código de algum local e injetá-lo na classe desejada. O PHP na verdade possui tal funcionalidade, e ela se chama trait.
+
+Para testarmos, criaremos no diretório "Modelo" uma nova classe "AcessoPropriedades" utilizando o template "Trait" disponibilizado pela IDE.
+
+```php
+
+<?php
+
+
+namespace Alura\Banco\Modelo;
+
+
+trait AcessoPropriedades
+{
+
+}
+
+```
+
+Repare que a estrutura é bem parecida com a de uma classe, alterando somente a palavra class para trait. Removeremos a definição do método __get() da classe Endereco e o passaremos para a trait que criamos.
+
+```php
+
+trait AcessoPropriedades
+{
+    public function __get(string $nomeAtributo)
+    {
+        $metodo = 'recupera' . ucfirst($nomeAtributo);
+        return $this->$metodo();
+    }
+}
+
+```
+
+Na classe Endereco, incluiremos a instrução use AcessoPropriedades.
+
+```php
+
+final class Endereco
+{
+    use AcessoPropriedades;
+
+    private $cidade;
+    private $bairro;
+    private $rua;
+    private $numero;
+//...
+
+```
+
+Na aula de namespaces comentamos que a palavra use poderia significar coisas diferentes dependendo de onde ela é colocada em uma arquivo. Nesse caso, como estamos colocando-a diretamente dentro de uma classe, quer dizer que estamos utilizando uma trait. Isso implica que o PHP irá "colar" o conteúdo da trait no local informado, como se estivéssemos fazendo um "copia e cola" dos seus métodos, permitindo acesso ao __get().
+
+Isso também é vantajoso pois podemos utilizar quantas traits forem necessárias. Isso não é uma herança pois o PHP executa processos diferentes por baixo dos panos. Da mesma forma que incluímos o use AcessoPropriedades na classe Endereco, podemos fazer o mesmo em Pessoa.
+
+```php
+
+abstract class Pessoa
+{
+    use AcessoPropriedades;
+    protected $nome;
+    private $cpf;
+//...
+
+```
+
+Com isso, podemos, por exemplo, criar um novo $desenvolvedor e tentar acessar a sua propriedade $desenvolvedor->nome.
+
+```php
+
+$desenvolvedor = new Desenvolvedor('Vinicius', new CPF('123.456.789-10'), 2000);
+$desenvolvedor->nome;
+
+```
+
+O próprio PhpStorm não nos indicará um erro, pois o método mágico __get() existe na classe Pessoa, e todos os herdeiros dessa classe também terão acesso a ele. A utilização de traits é interessante, mas também perigosa. Devemos ponderar bastante a inclusão de métodos nas traits de modo a evitar confusões e problemas de manutenção.
+
+### Para saber mais: Traits
+
+O PHP fornece uma outra forma de reutilizarmos código, sem a necessidade de herança, através de **Traits**.
+
+Seu uso tem se tornado mais comum, com a evolução da linguagem, então vale a pena dar uma lida sobre Traits na documentação oficial do PHP: https://www.php.net/manual/en/language.oop5.traits.php.
 
 </details>
 
