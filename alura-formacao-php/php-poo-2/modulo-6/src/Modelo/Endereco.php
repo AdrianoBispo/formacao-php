@@ -2,7 +2,8 @@
 
 namespace Alura\Banco\Modelo;
 
-class Endereco
+// Impede a Herança
+final class Endereco
 {
     private $cidade;
     private $bairro;

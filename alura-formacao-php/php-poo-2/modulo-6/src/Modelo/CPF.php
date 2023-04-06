@@ -2,7 +2,8 @@
 
 namespace Alura\Banco\Modelo;
 
-class CPF
+// Impede a Herança
+final class CPF
 {
     private $numero;
 
