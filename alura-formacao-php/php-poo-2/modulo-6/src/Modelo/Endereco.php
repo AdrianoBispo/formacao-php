@@ -5,6 +5,9 @@ namespace Alura\Banco\Modelo;
 // Impede a Herança
 final class Endereco
 {
+
+    use AcessoPropriedades;
+
     private $cidade;
     private $bairro;
     private $rua;
@@ -43,9 +46,4 @@ final class Endereco
         return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
     }
 
-    public function __get(string $nomeAtributo)
-    {
-        $metodo = 'recupera' . ucfirst($nomeAtributo);
-        return $this->$metodo();
-    }
 }

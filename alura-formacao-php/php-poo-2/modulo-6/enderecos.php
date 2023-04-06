@@ -2,7 +2,7 @@
 
 require_once 'autoload.php';
 
-use Alura\Banco\Modelo\Endereco;
+use Alura\Banco\Modelo\{Endereco};
 
 $umEndereco = new Endereco (
     'Petropolis',

@@ -421,3 +421,17 @@ Alternativas à nossa abordagem
 - Aprendemos a implementar o __toString e o __get;
 
 - Conhecemos as traits e vimos um uso prático deste recurso;
+
+## Conclusão
+
+Parabéns, você concluiu o curso **Avançando com Orientação a Objetos com PHP: Herança, Polimorfismo e Interfaces** aqui na Alura! Esse é um treinamento bastante importante, pois a orientação a objetos é um assunto sério na vida de qualquer desenvolvedor(a) nos dias de hoje. Vamos recapitular o que estudamos até aqui?
+
+Organizamos o nosso projeto de forma diferente, separando as classes em pastas e namespaces, os "pacotes" do PHP. Comentamos bastante sobre herança, criamos classes e métodos abstratos e fizemos tipos diferentes de Conta, como ContaCorrente e ContaPoupanca, que estendem todas as funcionalidades de uma Conta genérica.
+
+Também abordamos os pilares da orientação a objetos (abstração e encapsulamento na primeira parte do treinamento, herança e polimorfismo na segunda), conhecemos as interfaces e traits, implementamos um autoload manualmente e trabalhamos com os métodos mágicos do PHP, como o __toString() e o __get().
+
+Claro, ainda existe muito a se estudar sobre PHP e orientação a objetos. É um mundo vasto de conhecimentos cujo aprendizado se dará com o tempo, e agora você já possui uma boa base para prosseguir nessa jornada.
+
+Esperamos que você tenha tirado bastante proveito desse treinamento. Se tiver qualquer dúvida, não hesite em abrir um tópico no fórum do curso! Nossos instrutores sempre tentam responder pessoalmente as dúvidas, e também temos uma ampla comunidade de alunos e monitores que podem te ajudar.
+
+Bons estudos e até a próxima!
