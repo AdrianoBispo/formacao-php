@@ -290,6 +290,302 @@ Se quiser entender mais sobre o assunto, é uma pesquisa que vale a pena. Aqui e
 
 </details>
 
+
+<!-- Documentação AULA 4 -->
+
+<details>
+  <summary>
+    <h2> Aula 4</h2>
+  </summary>
+
+  <h3> Interface </h3>
+
+Nosso objetivo agora é mantermos a herança de Funcionario em Gerente e Diretor, mas encontrarmos uma forma de Titular também conseguir acesso ao método podeAutenticar().
+
+<img src="https://caelum-online-public.s3.amazonaws.com/1538-php-oo-parte-2/Transcricao/autenticavel2.png" alt="Diagrama exemplificando" />
+
+A ideia é recebermos, no nosso Autenticador, um objeto do tipo Autenticavel. Inclusive, alteraremos o nome do parâmetro recebido de $diretor para $autenticavel. No método, verificaremos se $autenticavel pode se autenticar com a $senha que é passada. Em caso positivo, ele será logado; do contrário, informaremos que a senha está incorreta.
+
+```php
+
+class Autenticador
+{
+    public function tentaLogin(Autenticavel $autenticavel, string $senha): void
+    {
+        if ($autenticavel->podeAutenticar($senha)) {
+            echo "Ok. Usuário logado no sistema";
+        } else {
+         echo "Ops. Senha incorreta.";
+        }
+    }
+}
+
+```
+
+No vídeo anterior, quando conversamos sobre o problema da herança múltipla, vimos que surgem conflitos quando uma classe tenta herdar implementações diferentes de um mesmo método a partir de heranças diferentes. Mas e se, ao invés de uma implementação, tivermos somente um método abstrato, ou seja, o conceito do método?
+
+Para testarmos, criaremos no diretório "Modelo" uma classe Autenticavel. Note que, na tela de criação de classes do PhpStorm, existe uma opção "Template" que, além de "Class", oferece também as opções "Interface" e "Trait". Como ainda não sabemos o que significam, continuaremos normalmente.
+
+Sabemos que essa classe precisa de um método podeAutenticar(), mas não queremos implementá-lo. Sendo assim, vamos criá-lo como abstrato e tornar também a classe Autenticável abstrata.
+
+```php
+
+abstract class Autenticavel
+{
+
+    abstract public function podeAutenticar(string $senha): bool;
+
+}
+
+```
+
+Com isso temos uma classe na qual todos os métodos são abstratos, certo? Mesmo assim, não conseguiremos fazer com que Diretor herde tanto de Funcionario quanto de Autenticavel, com o próprio PhpStorm nos indicando essa impossibilidade. Queremos uma forma de utilizarmos a assinatura do método podeAutenticar(), sem necessariamente recebermos essa classe, algo que é possível por meio de uma **interface**.
+
+O conceito de interface representa, basicamente, uma classe abstrata com todos os seus métodos abstratos. Portanto, ao invés de chamarmos nossa Autenticavel de classe abstrata, vamos defini-la como interface. Como por definição os métodos de uma interface são abstratos, não precisaremos incluir a palavra reservada abstract na assinatura de podeAutenticar().
+
+```php
+
+interface Autenticavel
+{
+    public function podeAutenticar(string $senha): bool;
+
+}
+
+```
+
+Feito isso, poderemos fazer com que nosso Diretor, além de estender de Funcionario, implemente a interface Autenticavel, algo que é feito com a palavra implements.
+
+```php
+
+<?php
+
+namespace Alura\Banco\Modelo\Funcionario;
+
+use Alura\Banco\Modelo\Autenticavel;
+
+class Diretor extends Funcionario implements Autenticavel
+{
+    public function calculaBonificacao(): float
+    {
+        return $this->recuperaSalario() * 2;
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === '1234';
+    }
+}
+
+```
+
+Uma classe pode implementar quantas interfaces forem necessárias, sem limitação. Por exemplo, o PHP possui uma interface \JsonSerializable que nos obriga a implementar o seu método jsonSerialize().
+
+```php
+
+class Diretor extends Funcionario implements Autenticavel, \JsonSerializable
+{
+    public function calculaBonificacao(): float
+    {
+        return $this->recuperaSalario() * 2;
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === '1234';
+    }
+
+    public function jsonSerialize()
+    {
+        // TODO: Implement jsonSerialize() method.
+    }
+}
+
+```
+
+Feito esse teste, removeremos a interface \JsonSerializable do nosso código e implementaremos nossa nova interface também na classe Gerente. Com o atalho "Alt + Enter", conseguiremos inserir automaticamente o esqueleto do método podeAutenticar().
+
+```php
+
+namespace Alura\Banco\Modelo\Funcionario;
+
+use Alura\Banco\Modelo\Autenticavel;
+
+class Gerente extends Funcionario implements Autenticavel
+{
+    public function calculaBonificacao(): float
+    {
+        return $this->recuperaSalario();
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        // TODO: Implement podeAutenticar() method.
+    }
+}
+
+```
+
+No caso do Gerente, a implementação do método simplesmente retornará uma $senha com o valor 4321.
+
+```php
+
+public function podeAutenticar(string $senha): bool
+{
+    return $senha === '4321';
+}
+
+```
+
+Repetiremos o processo com a classe Titular, dessa vez retornando uma $senha de valor abcd.
+
+```php
+
+namespace Alura\Banco\Modelo\Conta;
+
+use Alura\Banco\Modelo\Autenticavel;
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Endereco;
+use Alura\Banco\Modelo\Pessoa;
+
+class Titular extends Pessoa implements Autenticavel
+{
+    private $endereco;
+
+    public function __construct(CPF $cpf, string $nome, Endereco $endereco)
+    {
+        parent::__construct($nome, $cpf);
+        $this->endereco = $endereco;
+    }
+
+    public function getEndreco(): Endereco
+    {
+        return $this->endereco;
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === 'abcd';
+    }
+}
+
+```
+
+No Autenticador, passaremos a importar a classe Autenticavel, fazendo com que o PhpStorm identifique a presença do método podeAutenticar().
+
+```php
+
+namespace Alura\Banco\Service;
+
+use Alura\Banco\Modelo\Autenticavel;
+
+class Autenticador
+{
+    public function tentaLogin(Autenticavel $autenticavel, string $senha): void
+    {
+        if ($autenticavel->podeAutenticar($senha)) {
+            echo "Ok. Usuário logado no sistema";
+        } else {
+         echo "Ops. Senha incorreta.";
+        }
+    }
+}
+
+```
+
+Assim conseguiremos receber, no método tentaLogin(), um objeto do tipo Autenticavel e que possui o método podeAutenticar(), obstante o fato de ser um Diretor, Gerente, Titular ou qualquer outra quase. Quando implementamos uma interface, estamos nos comprometendo a implementar os métodos definidos nela.
+
+Por exemplo, se incluirmos na interface Autenticavel um método teste(), por exemplo, seremos obrigados a implementá-lo nas classes Diretor, Gerente e Titular. Utilizando a interface, conseguimos chegar em algo próximo de uma herança múltipla, de maneira semelhante ao desenho que apresentamos no início do vídeo.
+
+<img src="https://caelum-online-public.s3.amazonaws.com/1538-php-oo-parte-2/Transcricao/autenticavel2.png" alt="Diagrama exemplificando" />
+
+Aqui as linhas pontilhadas representam a implementação de uma interface. O desenho também é parecido com o **diagrama de classes da UML**, mas não é fiel a um. Aqui na Alura existem treinamentos de UML caso você queira entender esse conceito.
+
+Agora que implementamos a interface e temos um sistema completo, podemos testar a autenticação executando o arquivo autenticacao.php.
+
+```php
+
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Funcionario\Diretor;
+use Alura\Banco\Service\Autenticador;
+
+require_once 'autoload.php';
+
+$autenticador = new Autenticador();
+$umDiretor = new Diretor(
+    'João da Silva',
+    new CPF('123.456.789-10'),
+    10000
+);
+
+$autenticador->tentaLogin($umDiretor, '1234');
+
+```
+
+Como retorno, teremos a mensagem "Ok. Usuário logado no sistema", indicando que tudo ocorreu corretamente. Se substituirmos o Diretor por um Gerente, receberemos a mensagem informando que a senha está incorreta. Para corrigirmos isso, passaremos a senha correta, que é 4321.
+
+```php
+
+<?php
+
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Funcionario\Diretor;
+use Alura\Banco\Modelo\Funcionario\Gerente;
+use Alura\Banco\Service\Autenticador;
+
+require_once 'autoload.php';
+
+$autenticador = new Autenticador();
+$umDiretor = new Gerente(
+    'João da Silva',
+    new CPF('123.456.789-10'),
+    10000
+);
+
+$autenticador->tentaLogin($umDiretor, '4321');
+
+```
+
+Assim a mensagem de sucesso voltará a ser exibida. Da mesma forma, podemos passar um Titular, sem nos esquecermos de corrigir os parâmetros do construtor.
+
+```php
+
+use Alura\Banco\Modelo\Conta\Titular;
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Endereco;
+use Alura\Banco\Modelo\Funcionario\Diretor;
+use Alura\Banco\Modelo\Funcionario\Gerente;
+use Alura\Banco\Service\Autenticador;
+
+require_once 'autoload.php';
+
+$autenticador = new Autenticador();
+$umDiretor = new Titular(
+    new CPF(
+        '123.456.789-10'),
+    'João da Silva',
+    new Endereco(
+        '',
+        '',
+        '',
+        '')
+);
+
+$autenticador->tentaLogin($umDiretor, '4321');
+
+```
+
+Como estamos passando uma senha inválida, receberemos a mensagem de erro: **__Ops. Senha incorreta.__**
+
+Agora temos uma forma de autenticação funcional para o Diretor, Gerente ou Titular, pois todos eles implementam a interface Autenticavel. O conceito de interface é bem simples, mas a sua utilização é muito importante na programação orientada a objetos. Inclusive, existe uma premissa no mundo da orientação a objetos dizendo que sempre devemos programar para interfaces ou abstrações, e nunca para as implementações.
+
+É interessante que nossas funcionalidades dependam de classes abstratas ou interfaces, pois isso torna nosso sistema mais extensível e maleável. Como exemplo, podemos facilmente criar um novo tipo de cliente, que não é titular de uma conta mas pegou empréstimo no banco, e torná-lo autenticável.
+
+Vamos recapitular? Interfaces são basicamente classes abstratas que possuem somente métodos abstratos, o que nos permite a implementação de múltiplas interfaces sem problemas, já que evitam o problema de herdar dois métodos "iguais" de classes diferentes. Esse é um tema denso, portanto não deixe de expôr as suas dúvidas no fórum e de fazer os exercícios.
+
+No próximo e último capítulo deste treinamento conheceremos mais alguns conceitos interessantes da orientação a objetos em PHP!
+
+</details>
+
 ## O que aprendi neste módulo:
 
 - Entendi o conceito de herança múltipla e o porquê de muitas linguagens (PHP inclusive) não a permitirem;
