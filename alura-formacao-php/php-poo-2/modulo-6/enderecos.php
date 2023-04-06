@@ -19,4 +19,6 @@ $outroEndereco = new Endereco (
 );
 
 echo $umEndereco . PHP_EOL;
-echo $outroEndereco;
+echo $outroEndereco . PHP_EOL;
+
+echo $outroEndereco->numero; // Pega de forma livre os atributos dos objetos do tipo Endereco 
