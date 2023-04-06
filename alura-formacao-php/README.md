@@ -4,11 +4,11 @@ Este diretório armazena as anotações e os exercícios realizados nos cursos d
 <a href="https://cursos.alura.com.br/formacao-linguagem-php">"Aprenda a Programar em PHP"</a> instruído pelo <a href="https://cursos.alura.com.br/user/cviniciussdias">Vinicius Dias</a>, 
 instrutor dos cursos de PHP da <a href="https://www.alura.com.br">Alura</a> e Engenheiro de Software PHP certificado pela Zend Enginer.
 
-Acesse os links abaixos para ter acesso:
+Acesse os links abaixos para ter acesso ao:
 
-- [A parte 1 do material inicial](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
-- [A parte 2 do material inicial](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
-- [As principais funções de manipulação de Arrays](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-arrays)
-- [As principais funções de manipulação de Strings](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-strings)
-- [A parte 1 de Programação Orientada a Objetos](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
-- [A parte 2 de Programação Orientada a Objetos](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo-2)
+- [Material inicial parte 1](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
+- [Material inicial parte 2](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
+- [Material mostrando as principais Array Functions](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-arrays)
+- [Material mostrando as principais String Functions](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-strings)
+- [Material sobre Programação Orientada a Objetos parte 1](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo)
+- [Material sobre Programação Orientada a Objetos parte 2](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/php-poo-2)
