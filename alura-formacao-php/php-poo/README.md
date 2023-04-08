@@ -1,4 +1,3 @@
-# PHP: Orientação a Objetos
+# Orientação a Objetos com PHP
 
-material referente ao curso: 
-<a href="https://www.alura.com.br/curso-online-php-oo-classes-metodos-atributos">Orientação a Objetos com PHP: Classes, Métodos e Atributos</a>
+Chegou a hora de aprender o que é a orientação a objetos e para que ela serve. Sendo assim, aqui você aprenderá os principais conceitos do paradigma de orientação a objetos, como classes, herança e interfaces, e verá como tudo isso irá te ajudar nos seus códigos e no seu dia a dia na programação.
