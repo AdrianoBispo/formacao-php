@@ -19,3 +19,7 @@
 - Algumas coisas interessantes, como, por exemplo, manipulação de arquivos <code>.zip</code>, ler **arquivos zipados** e **arquivo Zip com senha**, inclusive, trabalhei com textos nos streams.
 
 - Como filtrar os streams, como filtrar o nosso fluxo de entrada para que nem tudo passe e que nem tudo chegue na nossa aplicação.
+
+## Conteúdos Extras:
+
+- [Video: Upload de arquivos com PHP](https://cursos.alura.com.br/extra/alura-mais/upload-de-arquivos-com-php-c205)
