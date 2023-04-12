@@ -1,10 +1,10 @@
-<h1>
-  <img align="left" width="120px" height="120px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" />
-  Formação PHP
-</h1>
-<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge" /><br>
+<img src="https://github.com/AdrianoBispo/formacao-php/blob/master/img/formacao-php.png?raw=true" />
 
-<p>Este repositório foi criado com intuito de armazenar os exercícios e anotações dos cursos de PHP realizados por mim.</p>
+Este diretório armazena as anotações e os exercícios realizados nos cursos da Formação <a href="https://cursos.alura.com.br/formacao-linguagem-php">"Aprenda a Programar em PHP"</a> instruído pelo <a href="https://cursos.alura.com.br/user/cviniciussdias">Vinicius Dias</a>, instrutor dos cursos de PHP da <a href="https://www.alura.com.br">Alura</a> e Engenheiro de Software PHP certificado pela Zend Enginer.
 
-- [Clique aqui para ter uma breve introdução sobre a linguagem PHP](https://github.com/AdrianoBispo/formacao-php/tree/master/introducao)
-- [Clique aqui para acessar os arquivos da **Formação PHP da Alura**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php)
+Acesse os links abaixo:
+
+- [**Primeiros Passos: Conhecendo a Linguagem**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/primeiros-passos)
+- [**Segundo Passo: Conhecendo as Principais Funções de Arrays e Strings**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/arrays-e-strings)
+- [**Terceiro Passo: Programação Orientada a Objetos**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/orientacao-a-objetos)
+- [**Quarto Passo: Manipulação de Arquivos e Tratamento de Erros**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/tratando-arquivos-e-erros)
