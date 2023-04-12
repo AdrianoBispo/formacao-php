@@ -1,10 +1,41 @@
 <?php
 
-$nomes = ' adriano Vinicius Vitor Alex Adriana';
+// STRINGS NÚMERICAS
 
-echo trim($nomes) . PHP_EOL; // remove todss os espaços do inicio e do final da $nomes
-echo ltrim($nomes) . PHP_EOL; // remove os espaçoes à esquerda da variavel
-echo rtrim($nomes) . PHP_EOL; // remove os espaços à direita da variavel
+$anoDeNascimento = '2004';
+$idade = 2022 - $anoDeNascimento; 
 
-// Também é possível adicionar outros parâmetro informando o char que queremos remover
-echo trim($nomes, 'a') . PHP_EOL; // Remove as letras "a" da variavel
+// Converte o tipo string para número 
+if ($anoDeNascimento == ' 2004') {
+    echo "VERDADEIRO" . PHP_EOL;
+} 
+
+// Converte o tipo string para número 
+if ($anoDeNascimento == '2004 ') {
+    echo "VERDADEIRO" . PHP_EOL;
+}
+
+// Converte o tipo string para número 
+if ($anoDeNascimento == ' 2004 ') {
+    echo "VERDADEIRO" . PHP_EOL;
+}
+
+// Converte o tipo string para número 
+if ($anoDeNascimento == 2004) {
+    echo "VERDADEIRO" . PHP_EOL;
+}
+
+// Verifica se o tipo de dado e se valor é igual
+if ($anoDeNascimento === 2004) {
+    echo 'VERDADEIRO' . PHP_EOL;
+} else {
+    echo 'FALSO' . PHP_EOL;
+}
+
+// Antes da versão 8.0 isso retornaria VERDADEIRO
+$anoDeNascimento = 'a2004';
+if ($anoDeNascimento == 0) {
+    echo 'VERDADEIRO' . PHP_EOL;
+} else {
+    echo 'FALSO';
+}

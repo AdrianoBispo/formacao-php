@@ -1,41 +1,93 @@
 <?php
 
-// STRINGS NÚMERICAS
+function aspaDupla():void
+{
+    $nome = 'Júlia';
+    $contratarVoce = 'contratar você!';
+    $assinatura = 'Dr. Lucas';
 
-$anoDeNascimento = '2004';
-$idade = 2022 - $anoDeNascimento; 
+    $conteudoEmail = 
+    
+    "Olá, $nome!
+    
+    Estamos entrando em contato para
+    $contratarVoce
+    
+    $assinatura";
 
-// Converte o tipo string para número 
-if ($anoDeNascimento == ' 2004') {
-    echo "VERDADEIRO" . PHP_EOL;
-} 
-
-// Converte o tipo string para número 
-if ($anoDeNascimento == '2004 ') {
-    echo "VERDADEIRO" . PHP_EOL;
+    echo $conteudoEmail;
 }
 
-// Converte o tipo string para número 
-if ($anoDeNascimento == ' 2004 ') {
-    echo "VERDADEIRO" . PHP_EOL;
+aspaDupla(); // Retorna o texto identado e indentifica as variáveis
+
+function aspaSimples():void
+{
+    $nome = 'Júlia';
+    $contratarVoce = 'contratar você!';
+    $assinatura = 'Dr. Lucas';
+
+    $conteudoEmail = 
+    
+    'Olá, $nome!
+    
+    Estamos entrando em contato para
+    $contratarVoce
+    
+    $assinatura';
+
+    echo $conteudoEmail;
 }
 
-// Converte o tipo string para número 
-if ($anoDeNascimento == 2004) {
-    echo "VERDADEIRO" . PHP_EOL;
+aspaSimples(); // Retorna o texto identado e não indentifica as variáveis
+
+
+// O heredoc é equivalente as aspas duplas
+function herodoc():void
+{
+
+    $nome = 'Vinícius';
+    $contratarVoce = 'contratar você!';
+    $assinatura = 'Dr. João';
+
+    $conteudo = 
+    <<<FIM
+
+    Olá, $nome!
+    
+    Estamos entrando em contato para
+    $contratarVoce
+    
+    $assinatura
+    
+    FIM;
+
+    echo $conteudo;
 }
 
-// Verifica se o tipo de dado e se valor é igual
-if ($anoDeNascimento === 2004) {
-    echo 'VERDADEIRO' . PHP_EOL;
-} else {
-    echo 'FALSO' . PHP_EOL;
+herodoc(); // Retorna o texto sem identação e indentifica as variáveis
+
+
+// O nowdoc é equivalente a aspa simples
+function nowdoc():void
+{
+
+    $nome = 'Vinícius';
+    $contratarVoce = 'contratar você!';
+    $assinatura = 'Dr. Lucas';
+
+    $conteudo = 
+    <<<'FIM'
+
+    Olá, $nome!
+    
+    Estamos entrando em contato para
+    $contratarVoce
+    
+    $assinatura
+    
+    FIM;
+
+    echo $conteudo;
 }
 
-// Antes da versão 8.0 isso retornaria VERDADEIRO
-$anoDeNascimento = 'a2004';
-if ($anoDeNascimento == 0) {
-    echo 'VERDADEIRO' . PHP_EOL;
-} else {
-    echo 'FALSO';
-}
+nowdoc(); // Retorna o texto sem identação e não indentifica as variáveis

@@ -7,9 +7,10 @@ $telefone = ['(24) 99999 - 9999', '(21) 99999 - 9999', '(24) 2222 - 2222'];
 
 foreach ($telefone as $telefone) {
 
+    $regex = '/^\(([0-9]{2})\) (9?[0-9]{4} - [0-9]{4})$/';
     $telefoneValido = preg_match(
-        '/^\([0-9]{2}\) 9?[0-9]{4} - [0-9]{4}$/', // Parâmetro Regex
-        $telefone, // Variável utilizada para fazer o "match" com nossa Regex
+        $regex,
+        $telefone, // Variável para fazer o "match" com nossa Regex
         $correspondencia // Variável que armazena os valores interpretados pela operação de "match"
     );
     var_dump($correspondencia); // Retorna os valores capturados da array $telefones
@@ -19,22 +20,20 @@ foreach ($telefone as $telefone) {
     } else {
         echo 'Telefone Inválido';
     }
+
+    echo preg_replace( // Substituição utilizando Regex
+        $regex,
+        '(XX) \2',
+        $telefone
+    ) . PHP_EOL;
 }
 
-// Atividade - Verificação de CPF
+// Atividade - Trocando a Ordem de uma Data
 
-$cpf = ['123.456.789-10', '123.456.789-11', '123.456.789-12'];
-
-foreach ($cpf as $cpf) {
-    $validandoCPF = preg_match(
-        '/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/',
-        $cpf,
-        $cpfCapturados
-    );
-}
-
-if ($validandoCPF) {
-    echo 'CPF Válido';
-} else {
-    echo 'CPF inválido';
-}
+$data = '2022-06-08';
+$regex = '/^([0-9]{4})-([0-9]{2})-([0-9]{2})/';
+echo preg_replace(
+    $regex,
+    '\3/\2/\1',
+    $data
+);

@@ -1,29 +1,40 @@
 <?php
 
-$xingamentos = 'Viado!, Idiota!, Desgraça!';
+// Regex (Regular Expression) 
+// Acesse: https://regex101.com/
 
-// Substitui apenas a palavra 'Idiota'
-echo str_replace('Idiota!', '***', $xingamentos);
+$telefone = ['(24) 99999 - 9999', '(21) 99999 - 9999', '(24) 2222 - 2222'];
 
-// Substitui todas as palavras
-echo str_replace(['Viado!', 'Idiota!', 'Desgraça!'], '***', $xingamentos);
+foreach ($telefone as $telefone) {
 
-// Substitui todas as palavras pelos caracteres declarados
-echo str_replace(['Viado!', 'Idiota!', 'Desgraça!'], ['***', '$$$', '@@@'], $xingamentos);
+    $telefoneValido = preg_match(
+        '/^\([0-9]{2}\) 9?[0-9]{4} - [0-9]{4}$/', // Parâmetro Regex
+        $telefone, // Variável utilizada para fazer o "match" com nossa Regex
+        $correspondencia // Variável que armazena os valores interpretados pela operação de "match"
+    );
+    var_dump($correspondencia); // Retorna os valores capturados da array $telefones
 
-// Traduz os caracteres de uma string
-echo strtr($xingamentos, 'Viado', '***');
+    if ($telefoneValido) {
+        echo 'Telefone Válido' . PHP_EOL;
+    } else {
+        echo 'Telefone Inválido';
+    }
+}
 
-// Traduz os caracteres de uma string através de uma lista
-echo strtr($xingamentos, ['Viado' => '$$$', 'Idiota' => '***']) . PHP_EOL;
+// Atividade - Verificação de CPF
 
+$cpf = ['123.456.789-10', '123.456.789-11', '123.456.789-12'];
 
+foreach ($cpf as $cpf) {
+    $validandoCPF = preg_match(
+        '/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/',
+        $cpf,
+        $cpfCapturados
+    );
+}
 
-// EXEMPLO DA DOCUMENTAÇÃO
-
-// Substitui o 'hi' por 'hello', depois 'hello' pelo 'hi' sem sobrescrever
-$palavra = ['hello' => 'hi', 'hi' => 'hello'];
-echo strtr("hi all, I said hello", $palavra) . PHP_EOL;
-
-// Substitui todos os 'hello' pôr 'hi', depois o 'hi' é substituido pôr 'hello'
-echo str_replace(['hello', 'hi'], ['hi', 'hello'], 'hi all, i said hello');
+if ($validandoCPF) {
+    echo 'CPF Válido';
+} else {
+    echo 'CPF inválido';
+}
