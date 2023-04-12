@@ -19,7 +19,7 @@
 | [``aula-16.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-16.php) | _Regex_ ``preg_match()`` e ``preg_replace()``   | _..._                        |
 
 
-## Através desse curso pude aprender:
+## 💡 Através desse curso pude aprender:
 
 - Como utilizar várias funções de strings com o PHP 8;
 
@@ -41,7 +41,7 @@
 
 - Como fazer substituições em strings, mudar um caractere para outro, mudar uma palavra para outra, vamos entrar no assunto de **expressões regulares**.
 
-## Conteúdos Extras:
+## 👨🏾‍🏫 Conteúdos Extras:
 
 - [Artigo: Extensões PHP](https://dias.dev/2022-02-13-extensoes-php/)
 
@@ -53,6 +53,6 @@
 
 - [Curso: Expressões Regulares](https://cursos.alura.com.br/course/expressoes-regulares)
 
-### Créditos
+## ✍🏽 Licença
 
-Esse material é referente ao curso da Alura: <a href="https://www.alura.com.br/curso-online-php-strings-manipulando-textos-php">PHP Strings: Manipulando Textos com PHP</a>
+> Esse material é referente ao curso <a href="https://www.alura.com.br/curso-online-php-strings-manipulando-textos-php">PHP Strings: Manipulando Textos com PHP</a>
