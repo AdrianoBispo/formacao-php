@@ -4,7 +4,7 @@ Este diretório armazena as anotações e os exercícios realizados nos cursos d
 
 Acesse os links abaixo:
 
-- [**Primeiros Passos: Conhecendo a Linguagem**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/primeiros-passos)
-- [**Segundo Passo: Conhecendo as Principais Funções de Arrays e Strings**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/arrays-e-strings)
-- [**Terceiro Passo: Programação Orientada a Objetos**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/orientacao-a-objetos)
-- [**Quarto Passo: Manipulação de Arquivos e Tratamento de Erros**](https://github.com/AdrianoBispo/formacao-php/tree/master/alura-formacao-php/tratando-arquivos-e-erros)
+- [**Primeiros Passos: Conhecendo a Linguagem**](https://github.com/AdrianoBispo/formacao-php/tree/master/primeiros-passos)
+- [**Segundo Passo: Conhecendo as Principais Funções de Arrays e Strings**](https://github.com/AdrianoBispo/formacao-php/tree/master/arrays-e-strings)
+- [**Terceiro Passo: Programação Orientada a Objetos**](https://github.com/AdrianoBispo/formacao-php/tree/master/orientacao-a-objetos)
+- [**Quarto Passo: Manipulação de Arquivos e Tratamento de Erros**](https://github.com/AdrianoBispo/formacao-php/tree/master/tratando-arquivos-e-erros)
