@@ -1,5 +1,24 @@
 # PHP Strings: Manipulando Textos com PHP
 
+| **Arquivos**        | **Funções**                                     |  **Descrição**               |
+| ------------------- | ----------------------------------------------- | ---------------------------- |
+| [``aula-1.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-1.php)  | ``str_contains()``                              | _..._                        |
+| [``aula-2.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-2.php)  | ``str_starts_with()`` e ``str_ends_with()``     | _..._                        |
+| [``aula-3.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-3.php)  | ``substr()``                                    | _..._                        |
+| [``aula-4.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-4.php)  | ``strpos()``                                    | _..._                        |
+| [``aula-5.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-5.php)  | ``strlen()``                                    | _..._                        |
+| [``aula-6.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-6.php)  | ``strtoupper()`` e ``strtolower``               | _..._                        |
+| [``aula-7.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-7.php)  | ``explode()``                                   | _..._                        |
+| [``aula-8.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-8.php)  | ``implode()``                                   | _..._                        |
+| [``aula-10.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-10.php) | ``trim()``                                      | _..._                        |
+| [``aula-11.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-11.php) | _Strings Númericas_                             | _..._                        |
+| [``aula-12.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-12.php) | ``Herodoc`` e ``Nowdoc``                        | _..._                        |
+| [``aula-13.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-13.php) | ``htmlspecialchars()``                          | _..._                        |
+| [``aula-14.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-14.php) | ``str_replace()`` e ``strtr()``                 | _..._                        |
+| [``aula-15.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-15.php) | _Regex_ ``preg_match``                          | _..._                        |
+| [``aula-16.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/alura-formacao-php/arrays-e-strings/php-strings/aula-16.php) | _Regex_ ``preg_match()`` e ``preg_replace()``   | _..._                        |
+
+
 ## Através desse curso pude aprender:
 
 - Como utilizar várias funções de strings com o PHP 8;
