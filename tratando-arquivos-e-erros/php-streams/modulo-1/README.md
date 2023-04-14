@@ -1,4 +1,4 @@
-# Lendo Arquivos com PHP
+# Módulo 1: Lendo Arquivos com PHP
 
 | **Funções Aprendidas**   |  **Descrição**               |
 | ------------------------ | ---------------------------- |
