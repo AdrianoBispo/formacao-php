@@ -1,9 +1,9 @@
 # PHP Strings: Manipulando Textos com PHP
 
-| **Arquivo**         | **Função**                                      |  **Descrição**               |
+| **ARQUIVO**         | **FUNÇÃO**                                      |  **DESCRIÇÃO**               |
 | ------------------- | ----------------------------------------------- | ---------------------------- |
 | [``aula-1.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/arrays-e-strings/php-strings/aula-1.php)  | ``str_contains()``                              | É uma função do PHP que foi adicionada na versão 8.0 e **serve para verificar se uma determinada string contém outra string** especificada como um parâmetro. A função retorna um valor booleano (verdadeiro ou falso) indicando se a string contém a substring. **Se a substring for encontrada na string, a função retorna verdadeiro (true), caso contrário, retorna falso (false)**.                       |
-| [``aula-2.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/arrays-e-strings/php-strings/aula-2.php)  | ``str_starts_with()`` e ``str_ends_with()``     | _..._                        |
+| [``aula-2.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/arrays-e-strings/php-strings/aula-2.php)  | ``str_starts_with()`` e ``str_ends_with()``     | **As funções str_starts_with() e str_ends_with() são utilizadas para verificar se uma string começa ou termina com determinado conjunto de caracteres, respectivamente**. A função str_starts_with() recebe dois argumentos: a string a ser verificada e a substring a ser procurada. **Ela retorna verdadeiro(true) se a string começar com a substring especificada ou false caso contrário.**                       |
 | [``aula-3.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/arrays-e-strings/php-strings/aula-3.php)  | ``substr()``                                    | _..._                        |
 | [``aula-4.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/arrays-e-strings/php-strings/aula-4.php)  | ``strpos()``                                    | _..._                        |
 | [``aula-5.php``](https://github.com/AdrianoBispo/formacao-php/blob/master/arrays-e-strings/php-strings/aula-5.php)  | ``strlen()``                                    | _..._                        |
