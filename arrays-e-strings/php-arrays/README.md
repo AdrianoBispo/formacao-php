@@ -20,6 +20,12 @@
 
 - E por fim, **pude conhecer algumas funções peculiares**;
 
+## 👨🏾‍🏫 Conteúdos Extras:
+
+- [Documentação: Array Unpacking](https://www.php.net/manual/en/language.types.array.php#language.types.array.unpacking)
+
+- [Podcast: Tabela de Hash – Hipsters Ponto Tech #222](https://open.spotify.com/episode/4JRy5UGJIJtNAZDV95WCnV)
+
 ## ✍🏽 Licença
 
 > Esse repositório foi criado com base no curso: <a href="https://cursos.alura.com.br/course/php-manipulando-colecoes-arrays">PHP: Manipulando Coleções com Arrays</a>
