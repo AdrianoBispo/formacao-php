@@ -1,6 +1,6 @@
 <img src="https://github.com/AdrianoBispo/formacao-php/blob/master/img/formacao-php.png?raw=true" />
 
-Este diretório armazena as anotações e os exercícios realizados nos cursos da Formação <a href="https://cursos.alura.com.br/formacao-linguagem-php">"Aprenda a Programar em PHP"</a> instruído pelo <a href="https://cursos.alura.com.br/user/cviniciussdias">Vinicius Dias</a>, instrutor dos cursos de PHP da <a href="https://www.alura.com.br">Alura</a> e Engenheiro de Software PHP certificado pela Zend Enginer.
+Este repositório armazena as anotações e os exercícios dos cursos da formação <a href="https://cursos.alura.com.br/formacao-linguagem-php">"Aprenda a Programar em PHP"</a> instruído pelo <a href="https://cursos.alura.com.br/user/cviniciussdias">Vinicius Dias</a>, instrutor dos cursos de PHP da <a href="https://www.alura.com.br">Alura</a> e Engenheiro de Software PHP certificado pela Zend Enginer.
 
 Acesse os links abaixo:
 
